@@ -1,11 +1,12 @@
 # AMRUL IZWAN
 
+> Follow ig [@amrulizwan](https://instagram.com/amrulizwan)
+
 Dosen : Pahrul Irfan, S.Kom, M.Kom
 
 ## Mata Kuliah Pemrograman Web
 
-Repository ini dibuat untuk memenuhi tugas dan praktikum mata kuliah Pemrograman Web S1 RPL
-
-> Follow ig [@amrulizwan](https://instagram.com/amrulizwan)
+> [!NOTE]
+> Repository ini dibuat untuk memenuhi tugas dan praktikum mata kuliah Pemrograman Web S1 RPL
 
 [BUMIGORA UNIVERSITY](https://universitasbumigora.ac.id)
