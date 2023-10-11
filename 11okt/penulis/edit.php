@@ -13,25 +13,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Tambah Data</title>
+    <title>Edit Data</title>
 </head>
 
 <body>
     <div class="container mt-4">
         <div class="alert alert-primary">
-            <h2 class="text-center">Tambah Data</h2>
+            <h2 class="text-center">Edit Data</h2>
         </div>
-
+        <?php 
+            include('../setting.php');
+            $id = $_GET['id'];
+            $query = "SELECT * FROM penulis WHERE id='$id'";
+            $result = mysqli_query($link,$query);
+            $row = mysqli_fetch_object($result);
+        ?>
         <div class="col-6">
             <form action="" method="post">
                 <label class="form-label">Nama :</label>
-                <input class="form-control" type="text" name="txtnama"> <br>
+                <input class="form-control" type="text" name="txtnama" value="<?= $row->nama ?>"> <br>
 
                 <label class="form-label">Alamat :</label>
-                <input class="form-control" type="text" name="txtalamat"> <br>
+                <input class="form-control" type="text" name="txtalamat" value="<?= $row->alamat ?>"> <br>
 
                 <label class="form-label">No Hp :</label>
-                <input class="form-control" type="text" name="txthp"> <br>
+                <input class="form-control" type="text" name="txthp" value="<?= $row->hp ?>"> <br>
 
                 <button name="submit" class="btn btn-success"><i class="fa fa-save"> SIMPAN</i></button>
                 <a class="btn btn-danger" href="tampil.php"><i class="fa fa-cancel">
@@ -50,7 +56,7 @@ if(isset($_POST['submit'])){
     $alamat = $_POST['txtalamat'];
     $hp = $_POST['txthp'];
 
-    $sql = "INSERT INTO penulis VALUES ('','$nama','$alamat','$hp')";
+    $sql = "UPDATE penulis SET nama='$nama', alamat='$alamat', hp='$hp' WHERE id='$id'";
     $query = mysqli_query($link,$sql);
 
     if($query){
