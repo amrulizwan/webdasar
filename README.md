@@ -1,6 +1,7 @@
 # AMRUL IZWAN
 
-> Follow ig [@amrulizwan](https://instagram.com/amrulizwan)
+> [!IMPORTANT]
+> AMRUL IZWAN <br>2201040003
 
 Dosen : Pahrul Irfan, S.Kom, M.Kom
 
@@ -11,7 +12,10 @@ Dosen : Pahrul Irfan, S.Kom, M.Kom
 
 <!-- Project Now -->
 
-> [!WARNING]
+> [!IMPORTANT]
 > Click to see Project [Temporary Index](https://github.com/amrulizwan/webdasar/tree/main/buku)
 
-[BUMIGORA UNIVERSITY](https://universitasbumigora.ac.id)
+> [!WARNING]
+> Follow ig [@amrulizwan](https://instagram.com/amrulizwan)
+
+[Bumigora University](https://universitasbumigora.ac.id)
