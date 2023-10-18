@@ -9,4 +9,8 @@ Dosen : Pahrul Irfan, S.Kom, M.Kom
 > [!NOTE]
 > Repository ini dibuat untuk memenuhi tugas dan praktikum mata kuliah Pemrograman Web S1 RPL SMT 3
 
+<!-- Project Now -->
+
+> [!NOTE] > [Temporary Index](https://github.com/amrulizwan/webdasar/tree/main/buku)
+
 [BUMIGORA UNIVERSITY](https://universitasbumigora.ac.id)
