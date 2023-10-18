@@ -11,7 +11,7 @@ Dosen : Pahrul Irfan, S.Kom, M.Kom
 
 <!-- Project Now -->
 
-> [!NOTE]
+> [!WARNING]
 > Click to see Project [Temporary Index](https://github.com/amrulizwan/webdasar/tree/main/buku)
 
 [BUMIGORA UNIVERSITY](https://universitasbumigora.ac.id)
