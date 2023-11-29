@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['login'])) {
+    header("location: index.php");
+    exit;
+}
+?>
 <?php 
 if(isset($_GET['id'])){
     include '../setting.php';

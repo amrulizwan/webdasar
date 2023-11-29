@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['email'])) {
+    header("location: ../index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +31,7 @@
             <h2 style="text-align: center;">Data Penulis</h2>
         </div>
         <a href="tambah.php"><button class="btn btn-info mb-3">TAMBAH DATA</button></a>
-        <table class="table table-striped table-hover" border="1">
+        <table class="table table-striped table-hover table-bordered" border="1">
             <thead>
                 <tr>
                     <th>No</th>
@@ -49,12 +56,12 @@
                     <td><?= $row->alamat; ?></td>
                     <td><?= $row->hp; ?></td>
                     <td>
-                        <a href="edit.php?id=<?= $row->id; ?>"><button type="button" class="btn btn-success"><i
+                        <a href="edit.php?id=<?= $row->id; ?>"><button type="button" class="btn btn-warning "><i
                                     class="fa fa-edit">
-                                    EDIT</i></button></a>
-                        <a href="delete.php?id=<?= $row->id; ?>"><button type="button" class="btn btn-danger"><i
-                                    class="fa fa-trash">
-                                    DELETE</i></button></a>
+                                </i> EDIT</button></a>
+                        <a onclick="return confirm('yakin kah bang?')" href="delete.php?id=<?= $row->id; ?>"><button
+                                type="button" class="btn btn-danger"><i class="fa fa-trash">
+                                </i> DELETE</button></a>
                     </td>
                 </tr>
                 <?php endwhile; ?>
