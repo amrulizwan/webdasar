@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['email'])) {
-    header("location: ../index.php");
-    exit;
+if(!$_SESSION['login']){
+    header('location: ../auth/login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -26,11 +25,14 @@ if (!isset($_SESSION['email'])) {
 
 <body>
 
+
     <div class="container mt-4">
         <div class="alert alert-primary">
             <h2 style="text-align: center;">Data Penulis</h2>
         </div>
         <a href="tambah.php"><button class="btn btn-info mb-3">TAMBAH DATA</button></a>
+        <a href="../auth/logout.php"><button onclick="return confirm('Anda yakin?')"
+                class="btn btn-danger mb-3 float-end">LOG OUT</button></a>
         <table class="table table-striped table-hover table-bordered" border="1">
             <thead>
                 <tr>

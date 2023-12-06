@@ -1,4 +1,8 @@
-<?php 
+<?php
+session_start();
+if(!$_SESSION['login']){
+    header('location: ../auth/login.php');
+}
 if(isset($_GET['id'])){
     include '../setting.php';
     $id = $_GET['id'];

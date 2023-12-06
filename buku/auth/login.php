@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if($_SESSION['login'] == null){
+    header('location: ../penulis/tampil.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,6 +92,7 @@
         color: #ececec !important
     }
     </style>
+    <link rel="stylesheet" href="../assets/parsley.css">
 </head>
 
 <body>
@@ -94,35 +101,46 @@
             <div class="text-center mb-4 pb-3">
                 <h3 class="text-light">Welcome back!</h3>
             </div>
-            <form action="" method="post">
+            <?php
+                require('../setting.php');
+                    if (isset($_POST["btnlogin"])) {
+                        $inputemail = htmlspecialchars($_POST["txtemail"]);
+                        $inputpassword = sha1(htmlspecialchars($_POST["txtpassword"]));
+
+                        $query = "SELECT * FROM users WHERE email='$inputemail' AND password='$inputpassword'";
+                        $result = mysqli_query($link,$query);
+
+                        if(mysqli_num_rows($result) == 1){
+                            $dataUser = mysqli_fetch_object($result);
+                            $_SESSION['login'] = true;
+                            $_SESSION['name'] = $dataUser->name;
+                            $_SESSION['role'] = $dataUser->role;
+                            
+                            header('location: ../penulis/tampil.php');
+                        } else {
+                            echo '<div class="alert alert-danger">Gagal login, Silahkan periksa email / password anda!</div>';
+                        }
+                    }
+            ?>
+            <form action="" method="post" data-parsley-validate="">
+
                 <div>
                     <span class="inputLogo"><i class="fas fa-lock"></i></span><input type="text"
-                        class="form-control rounded-pill" name="txtemail" placeholder="mail@email.com">
+                        class="form-control rounded-pill" name="txtemail" placeholder="mail@email.com" required>
                 </div>
                 <div class="my-2">
                     <span class="inputLogo"><i class="fas fa-key"></i></span><input type="password"
-                        class="form-control rounded-pill" name="txtpassword" placeholder="password">
+                        class="form-control rounded-pill" name="txtpassword" placeholder="password" required>
                 </div>
-                <button class="btn btn-accent rounded-pill w-100" name="btnlogin" type="submit">Login</button>
+                <button type="submit" class="btn btn-accent rounded-pill w-100" name="btnlogin">Login</button>
             </form>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"
+        integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
-<?php 
-require('../setting.php');
-if(isset($_POST['btnlogin'])){
-    $email =htmlspecialchars($_POST['txtemail']);
-    $password = sha1(htmlspecialchars( $_POST['txtpassword']));
-    $sql = "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'";
-    $result = mysqli_query($link,$sql);
-    if(mysqli_num_rows($result) > 0){
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['user'] = $row['email'];
-        echo "<script>alert('Sukses ')</script>";
-    }else{
-        echo "<script>alert('Email or Password is incorrect')</script>";
-    }
-}
-?>

@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (isset($_SESSION['login'])) {
-    header("location: index.php");
-    exit;
+if(!$_SESSION['login']){
+    header('location: ../auth/login.php');
 }
 ?>
 <!DOCTYPE html>
