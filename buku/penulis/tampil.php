@@ -40,7 +40,13 @@ if(!$_SESSION['login']){
                     <th>Nama</th>
                     <th>Alamat</th>
                     <th>HP</th>
-                    <th>Aksi</th>
+                    <?php
+                    if(!$_SESSION['role'] == 'admin'){
+                        echo '';
+                    } else {
+                        echo '<th>Aksi</th>';   
+                    }
+                    ?>
                 </tr>
             </thead>
             <tbody>

@@ -1,8 +1,5 @@
 <?php 
-session_start();
-if($_SESSION['login'] == null){
-    header('location: ../penulis/tampil.php');
-}
+session_start();    
 ?>
 <!DOCTYPE html>
 <html lang="en">
